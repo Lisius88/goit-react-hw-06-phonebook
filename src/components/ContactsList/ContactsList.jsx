@@ -1,6 +1,5 @@
 import { ContactsItem } from 'components/ContactsItem/ContactsItem';
 import { Notification } from 'components/Notification/Notification';
-import PropTypes from 'prop-types';
 import { List } from './ContactsList.styled';
 import { useSelector } from 'react-redux';
 
@@ -27,15 +26,4 @@ export const ContactsList = () => {
       ))}
     </List>
   );
-};
-
-ContactsList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
-  onDeleteClick: PropTypes.func.isRequired,
 };

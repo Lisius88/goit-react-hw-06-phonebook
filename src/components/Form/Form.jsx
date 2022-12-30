@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
 import { Button, FormContent } from './Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/actions';
@@ -27,6 +26,7 @@ export const Form = () => {
     }
   };
   const handleSubmit = event => {
+    event.preventDefault();
     const contact = { name, number, id: nanoid() };
 
     if (listContainsContact(contact)) {
@@ -68,8 +68,4 @@ export const Form = () => {
       <Button type="submit">Add contact</Button>
     </FormContent>
   );
-};
-
-Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
